@@ -6,13 +6,13 @@
     <title>TIF - 1.6 Live Session</title>
 
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="script.js"></script>
+    <script type="module" src="./script.js"></script>
     <script type="module" src="./animations.js"></script>
 </head>
 
 <body>
     <section class="opening">
-        <h1 id="tif-text">TIF</h1>
+        <h1 id="tif-text" class="moving-texts">TIF</h1>
         <svg id="logo"
             width="280" height="193"
             viewBox="0 0 280 193"
@@ -27,8 +27,28 @@
                 fill="#F06140"
             />
         </svg>
-        <h1 id="live-session-text">LIVE SESSION</h1>
+        <h1 id="live-session-text" class="moving-texts">LIVE SESSION</h1>
         <button id="hold-button">Click & maintain to start !</button>
+
+        <div id="home-bar">
+            <div id="home-bar-top">
+                <div id="top-left">
+                    <!-- Here flip the  '1.6' text -->
+                </div>
+                <div id="top-right">
+                    <!-- Here flip the  'LIVE SESSION' text -->
+                </div>
+            </div>
+            <img id="landscape" src="./assets/landscape.png" alt="" />
+            <div id="home-bar-bottom">
+                <div id="bottom-left">
+                    <!-- Here flip the  'TIF' text -->
+                </div>
+                <span id="bottom-right">
+                     Senpai Katchy, Nazim Bakour, Naghib Shanbehzadeh, Hakeem Rouidi
+                </span>
+            </div>
+        </div>
     </section>
 
     <section class="landscape"></section>

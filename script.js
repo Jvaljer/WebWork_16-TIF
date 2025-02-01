@@ -1,3 +1,5 @@
+import { homeStartAnimation } from './animations.js';
+
 const startButton = document.getElementById('hold-button');
 
 startButton.addEventListener('click', () => {
@@ -17,5 +19,5 @@ startButton.addEventListener('click', () => {
 
 function startPage() {
     console.log("start page");
-    // TODO: re-organize page to obtain "landscape" section
+    homeStartAnimation();
 }
