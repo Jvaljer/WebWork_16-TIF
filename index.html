@@ -6,14 +6,15 @@
     <title>TIF - 1.6 Live Session</title>
 
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="./script.js"></script>
     <script type="module" src="./animations.js"></script>
+    <!-- Including GSAP's DrawSVG plugin (TRIAL ONLY)-->
+    <script src="https://assets.codepen.io/16327/DrawSVGPlugin3.min.js"></script>
 </head>
 
 <body>
     <div id="opening" class="page">
-        <span id="tif-text">TIF</span>
-        <svg id="logo"
+        <span id="tif-text" class="opening-text">TIF</span>
+        <svg id="logo" class="opening-text"
             width="280" height="193"
             viewBox="0 0 280 193"
             fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -25,18 +26,19 @@
             <path d="M80.0747 163.467C77.6747 164.533 73.2747 167.867 70.3414 170.8C64.7414 176.533 65.008 178.533 71.5414 180.533C73.1414 181.067 76.208 183.2 78.3414 185.467C80.4747 187.6 83.2747 189.333 84.3414 189.333C85.5414 189.333 86.4747 189.867 86.4747 190.667C86.4747 191.333 88.608 192 91.1414 192C93.6747 192 95.808 191.333 95.808 190.667C95.808 189.867 97.1414 189.333 98.608 189.333C102.741 189.333 114.475 176.533 114.475 172C114.475 171.333 112.075 170.667 109.275 170.667C106.341 170.667 103.808 170.267 103.541 169.6C102.875 168.133 95.008 164 92.608 164C91.408 164 90.4747 163.333 90.4747 162.667C90.4747 160.8 85.2747 161.2 80.0747 163.467Z"
                 fill="#F06140"/>
         </svg>
-        <span id="session-text">LIVE SESSION</span>
+        <span id="session-text" class="opening-text">LIVE SESSION</span>
         <button id="hold-button">Click & maintain to start !</button>
-    </div>
-    <div id="home">
-        <div id="top-bar">
-            <div id="16-anchor"></div>
-            <div id="session-anchor"></div>
-        </div>
-        <img id="home-image" src="assets/landscape.png" />
-        <div id="bottom-bar">
-            <div id="tif-anchor"></div>
-            <span id="credits">Senpai Katchy, Nazim Bakour, Naghib Shanbehzadeh, Hakeem Rouidi</span>
+
+        <div id="home">
+            <div id="top-bar">
+                <div id="logo-anchor"></div>
+                <div id="session-anchor"></div>
+            </div>
+            <img id="home-image" src="assets/landscape.png" />
+            <div id="bottom-bar">
+                <div id="tif-anchor"></div>
+                <span id="credits">Senpai Katchy, Nazim Bakour, Naghib Shanbehzadeh, Hakeem Rouidi</span>
+            </div>
         </div>
     </div>
 </body>

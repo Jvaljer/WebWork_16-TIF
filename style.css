@@ -46,7 +46,6 @@ body {
 span#tif-text, span#session-text {
     font-size: 5rem;
     font-weight: bold;
-    border: solid 1px orange;
 }
 
 button {
@@ -63,7 +62,6 @@ button {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    border: solid 1px red;
 }
 
 
@@ -72,25 +70,25 @@ button {
 -------------------- */
 svg#logo {
     position: relative;
-    width: 140px;
-    height: 96.5px;
+    width: 280px;
+    height: 193px;
 }
 
 #opening {
+    position: relative;
     opacity: 0.0;
-    border: solid 1px blue;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 64px;
+    gap: 32px;
 
     & button#hold-button {
         box-sizing: content-box;
         position: absolute;
         white-space: nowrap;
-        /* opacity: 0; */
-        bottom: 64px;
+        opacity: 0;   
+        bottom: 32px;
         transform: translateX(-50%);
         left: 50%;
 
@@ -100,7 +98,7 @@ svg#logo {
             width: 1%;
             height: 100%;
             border-bottom: solid 1px var(--action-light);
-            transition: width 1s ease-in;
+            transition: width 0.75s ease-in;
         }
 
         &:active::before {
@@ -116,7 +114,45 @@ svg#logo {
     position: absolute;
     display: none;
     flex-direction: column;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    padding: 0 32px;
+    opacity: 0.0;
 
-    background: var(--action-light);
-    opacity: 0.25;
+    & #top-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        width: 100%;
+        height: 80px;
+
+        & #session-text {
+            font-size: 2rem;
+            white-space: nowrap;
+        }
+        & #logo {
+            width: 80px;
+            height: 56px;
+        }
+    }
+
+    & #bottom-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        width: 100%;
+        height: 80px;
+
+        & #credits {
+            white-space: nowrap;
+        }
+
+        & #tif-text {
+            font-size: 1.5rem;
+        }
+    }
 }

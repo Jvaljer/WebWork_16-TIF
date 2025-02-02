@@ -1,5 +1,3 @@
-import { homeStartAnimation } from './animations.js';
-
 const startButton = document.getElementById('hold-button');
 
 startButton.addEventListener('click', () => {
@@ -15,9 +13,3 @@ startButton.addEventListener('click', () => {
         startPage()
     }
 });
-
-
-function startPage() {
-    console.log("start page");
-    homeStartAnimation();
-}
