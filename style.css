@@ -43,11 +43,6 @@ body {
 /* --------------------
     GLOBAL ELEMENTS
 --------------------- */
-span#tif-text, span#session-text {
-    font-size: 5rem;
-    font-weight: bold;
-}
-
 button {
     font-size: 1.5rem;
     background: none;
@@ -83,6 +78,11 @@ svg#logo {
     align-items: center;
     gap: 32px;
 
+    & #tif-text, #session-text {
+        font-size: 5rem;
+        font-weight: bold;
+    }
+
     & button#hold-button {
         box-sizing: content-box;
         position: absolute;
@@ -111,14 +111,20 @@ svg#logo {
     HOME STYLES
 ------------------ */
 #home {
+    box-sizing: border-box;
     position: absolute;
     display: none;
     flex-direction: column;
+    justify-content: flex-end;
     top: 50%;
     transform: translateY(-50%);
-    width: 100%;
     padding: 0 32px;
     opacity: 0.0;
+
+    & #home-image {
+        width: 100%;
+        object-fit: cover;
+    }
 
     & #top-bar {
         display: flex;
@@ -133,8 +139,10 @@ svg#logo {
             white-space: nowrap;
         }
         & #logo {
-            width: 80px;
-            height: 56px;
+            width: fit-content;
+            height: 3vw;
+            max-height: 96px;
+            padding-bottom: 4px;
         }
     }
 
@@ -143,16 +151,18 @@ svg#logo {
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
-
         width: 100%;
         height: 80px;
 
         & #credits {
-            white-space: nowrap;
+            font-size: 1.25vw;
+            text-align: right;
+            letter-spacing: 0.1rem;
         }
 
         & #tif-text {
-            font-size: 1.5rem;
+            line-height: 1;
+            font-size: 2.5vw;
         }
     }
 }

@@ -51,6 +51,11 @@ home.to('#home', {display: 'flex', duration: 0.5, ease: 'power1.out'})
         document.getElementById('hold-button').style.display = 'none';
     }
 }, '<')
+.from('#home-image', {
+    height: '4px',
+    duration: 1,
+    ease: 'power1.out',
+})
 
 
 document.addEventListener("DOMContentLoaded", () => {
