@@ -36,55 +36,71 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     font-family: 'Aref Ruqaa', sans-serif;
+    color: var(--primary);
     letter-spacing: 0.5rem;
 }
 
-h1 {
+/* --------------------
+    GLOBAL ELEMENTS
+--------------------- */
+span#tif-text, span#session-text {
     font-size: 5rem;
-    color: var(--primary);
+    font-weight: bold;
+    border: solid 1px orange;
 }
 
-.opening {
+button {
+    font-size: 1.5rem;
+    background: none;
+    padding-bottom: 4px;
+    color: var(--action-light);
+    border: none;
+}
+
+.page {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    border: solid 1px red;
+}
+
+
+/* -------------------
+    OPENING STYLES
+-------------------- */
+svg#logo {
+    position: relative;
+    width: 140px;
+    height: 96.5px;
+}
+
+#opening {
+    opacity: 0.0;
+    border: solid 1px blue;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0 64px;
-    gap: 2.5%;
-    width: 100%;
-    height: 100%;
+    gap: 64px;
 
-    & svg {
-        position: relative;
-        width: 50%;
-        height: 50%;
-        opacity: 1;
-    }
-
-    & h1 {
-        opacity: 1.0;
-        white-space: nowrap;
-    }
-
-    & button {
-        opacity: 0;
+    & button#hold-button {
+        box-sizing: content-box;
         position: absolute;
+        white-space: nowrap;
+        /* opacity: 0; */
         bottom: 64px;
-
-        background: none;
-        border: none;
-        color: var(--action-light);
-        letter-spacing: 0.1rem;
-        font-size: 1.25rem;
-        cursor: pointer;
+        transform: translateX(-50%);
+        left: 50%;
 
         &::before {
             content: '';
             position: absolute;
-            width: 16px;
+            width: 1%;
             height: 100%;
             border-bottom: solid 1px var(--action-light);
-            transition: width 1s ease-in-out;
+            transition: width 1s ease-in;
         }
 
         &:active::before {
@@ -93,53 +109,14 @@ h1 {
     }
 }
 
-#home-bar {
+/* -----------------
+    HOME STYLES
+------------------ */
+#home {
+    position: absolute;
     display: none;
     flex-direction: column;
-    width: 95%;
-    height: fit-content;
-    background-color: var(--action-light);
 
-    & img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    & #home-bar-top {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-end;
-        border-bottom: solid 1px var(--action-dark);
-        width: 100%;
-        height: fit-content;
-
-        & svg {
-            position: relative;
-            opacity: 1;
-            padding-bottom: 8px;
-        }
-        
-        & h1 {
-            font-size: 2rem;
-            opacity: 1.0;
-            white-space: nowrap;
-        }
-    }
-
-    & #home-bar-bottom {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        width: 100%;
-        height: fit-content;
-
-        & h1 {
-            font-size: 1.5rem;
-            opacity: 1.0;
-            white-space: nowrap;
-        }
-    }
+    background: var(--action-light);
+    opacity: 0.25;
 }
