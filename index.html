@@ -10,20 +10,44 @@
 
 <body>
     <!-- Body has overflow hidden and no background -->
-    <div id="opening">
+    <div class="opening">
         <!-- Opening animation items, set empty after required actions are done
             - "Tif 1.6 live session"
             - Clikc & Hold button
         -->
     </div>
-    <div id="scroll">
+    <div class="scroll">
         <!-- This part is scrollable in order to enable gsap.scrollTrigger ...
             - Content is scrollable, but not the background image
         -->
-        <div id="home"></div>
-        <div id="vinyl"></div>
-        <div id="video"></div>
-        <div id="album"></div>
+        <div class="home scroll-page">
+            <!-- Here have anchors to get the opening items
+                - using scroll -> resize the 'bar' element to be on top and squeezed
+                - starts from 'relative' when scroll not triggered
+                - ends on 'fixed' with new styles once it is
+                - !! Never gets back to 'relative' unless scroll back !! 
+            -->
+            <div class="home-bar">
+                <div class="bar-top">
+                    <div class="top-left-anchor"></div>
+                    <div class="top-right-anchor"></div>
+                </div>
+                <img class="bar-image" src="assets/landscape.png" alt="">
+                <div class="bar-bottom">
+                    <div class="bottom-left-anchor"></div>
+                    <span class="bar-bottom-credits"></span>
+                </div>
+            </div>
+        </div>
+        <div class="vinyl scroll-page"></div>
+        <div class="video scroll-page"></div>
+        <div class="album scroll-page"></div>
     </div>
+
+    <audio id="session-audio">
+        <source src="assets/resources/live-session.mp3" type="audio/mpeg">
+        <source src="assets/resources/live-session.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
 </body>
 </html>
