@@ -63,11 +63,29 @@
                 </div>
             </div>
         </div>
-        <div class="vinyl scroll-page"></div>
+        <div class="vinyl scroll-page">
+            <div class="vinyl-container">
+                <div class="vinyl-group">
+                    <img class="vinyl-case" src="assets/images/vinyl-case.png" alt="">
+                    <img class="vinyl-disk" src="assets/images/vinyl.png" alt="">
+                </div>
+                <div class="vinyl-labels">
+                    <span class="vinyl-title">Live Session Vinyl</span>
+                    <span class="vinyl-text">Le classique cover sombre contenant la session libre sans cuts et avec quelques bonus.</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-page"></div>
         <div class="video scroll-page"></div>
         <div class="album scroll-page"></div>
+
     </div>
 
+    <div class="click-hold-indicator absolute"></div>
+    <div class="scroll-indicator absolute"></div>
+    <div class="audio-indicator absolute"></div>
+
+    <!-- Audio Source -->
     <audio id="session-audio">
         <source src="assets/resources/live-session.mp3" type="audio/mpeg">
         <source src="assets/resources/live-session.ogg" type="audio/ogg">

@@ -53,16 +53,14 @@ html, body
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    height: 400vh;
+    height: 500vh;
     width: 100%;
     overflow: auto;
-    border: solid 4px blue;
 
     & .scroll-page {
         box-sizing: border-box;
         height: 100vh;
         width: 100%;
-        border: solid 4px green;
     }
 }
 
@@ -120,4 +118,83 @@ html, body
             }
         }
     }
+}
+
+.vinyl {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+
+    & .vinyl-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: end;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    & .vinyl-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: end;
+        height: 50%;
+        gap: -32px;
+        border: solid 4px blue;
+
+        & .vinyl-case {
+            z-index: 1;
+            height: 100%;
+        }
+
+        & .vinyl-disk {
+            z-index: 0;
+            height: 98%;
+        }
+
+    }
+
+    & .vinyl-labels {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        width: 20vw;
+        height: 50%;
+        border: solid 4px cyan;
+
+        & .vinyl-title {
+            font-weight: bold;
+            font-size: 2vw;
+            line-height: 1.125;
+        }
+
+        & .vinyl-text {
+            font-size: 1.25vw;
+            line-height: 1.125;
+        }
+    }
+}
+
+.video {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.album {
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+
+/* Absolute Elements Styles */
+.absolute {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

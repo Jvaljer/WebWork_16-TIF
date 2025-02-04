@@ -61,15 +61,32 @@ homeScroll.to('.home-bar', {
 
 let vinyl = gsap.timeline({
     scrollTrigger: {
-        trigger: '.home',
-        start: 'bottom+=64px center',
+        trigger: '.vinyl-group',
+        start: 'center center',
         scrub: 1,
         markers: true
+
     },
     paused:true
 });
 
-vinyl.to('.vinyl', {
-    backgroundColor: 'red',
+
+vinyl.to('.vinyl-container', {
+    position: 'fixed',
+    alignItems: 'center',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
     ease: 'power1.out',
-}, '<')
+})
+.from('.vinyl-disk', {
+    opacity: 0,
+    x: '-100%',
+    rotate: '-180deg',
+    ease: 'power1.out',
+},'<')
+.from('.vinyl-labels', {
+    display: 'none',
+    opacity: 0,
+    ease: 'power1.out',
+})
