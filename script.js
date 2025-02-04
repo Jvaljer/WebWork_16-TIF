@@ -12,8 +12,7 @@ const homeScroll = gsap.timeline({
     scrollTrigger: {
         trigger: '.home-bar',
         start: 'top-=32 top',
-        scrub: 1,
-        markers: true
+        scrub: 1
     },
     paused:true
 });
@@ -58,6 +57,19 @@ homeScroll.to('.home-bar', {
 .to('.bar-bottom', {
     display: 'none',
     ease: 'power1.out',
-})
+});
 
+let vinyl = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.home',
+        start: 'bottom+=64px center',
+        scrub: 1,
+        markers: true
+    },
+    paused:true
+});
 
+vinyl.to('.vinyl', {
+    backgroundColor: 'red',
+    ease: 'power1.out',
+}, '<')
