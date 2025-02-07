@@ -63,9 +63,7 @@ let vinyl = gsap.timeline({
     scrollTrigger: {
         trigger: '.vinyl-group',
         start: 'center center',
-        scrub: 1,
-        markers: true
-
+        scrub: 1
     },
     paused:true
 });
@@ -84,9 +82,51 @@ vinyl.to('.vinyl-container', {
     x: '-100%',
     rotate: '-180deg',
     ease: 'power1.out',
-},'<')
-.from('.vinyl-labels', {
-    display: 'none',
+},'<');
+
+let vinylLabels = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.labels-trigger',
+        start: 'top bottom',
+        scrub: 1,
+    },
+    paused: true
+});
+
+vinylLabels.from('.vinyl-labels', {
     opacity: 0,
-    ease: 'power1.out',
 })
+.from('.vinyl-title', {
+    x: '-48px'
+}, '<')
+.from('.vinyl-text', {
+    opacity: 0,
+    x: '-128px'
+});
+
+let vinylOut = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.video-trigger',
+        start: 'top bottom',
+        end: 'bottom center',
+        scrub: 1
+    },
+    paused: true
+});
+
+vinylOut.to('.vinyl-case', {
+    x: '500%',
+    opacity: 0
+})
+.to('.vinyl-disk', {
+    x: '400%',
+    opacity: 0
+}, '<')
+.to('.vinyl-title', {
+    x: '300%',
+    opacity: 0
+}, '<')
+.to('.vinyl-text', {
+    x: '300%',
+    opacity: 0
+}, '<')
