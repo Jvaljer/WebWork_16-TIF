@@ -130,3 +130,27 @@ vinylOut.to('.vinyl-case', {
     x: '300%',
     opacity: 0
 }, '<')
+
+let video = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.video',
+        start: 'top bottom',
+        scrub: 1
+    }
+});
+
+video.to('.video', {
+    position: 'fixed',
+    top: 0,
+})
+.to('.video-illustration', {
+    width: '0px',
+    rotate: '90deg',
+    opacity: 0
+})
+.to('.video-illustration', {
+    display: 'none',
+    onComplete: () => {
+        document.querySelector('.video-play').play();
+    }
+})

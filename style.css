@@ -181,10 +181,27 @@ html, body
     }
 }
 
-.video-trigger {
-    background-color: rgba(0, 255, 0, 0.1);
-}
+.video {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
 
+    & .video-illustration {
+        margin-top: 5%;
+        position: absolute;
+        width: 65.5%;
+        height: auto;
+        z-index: 1;
+    }
+
+    & video {
+        margin-top: 5%;
+        z-index: 0;
+    }
+}
 
 /* Absolute Elements Styles */
 .absolute {
