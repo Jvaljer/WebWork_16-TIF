@@ -3,10 +3,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+let videoHeight, liveVideo;
+
+document.addEventListener('DOMContentLoaded', () => {
+    videoHeight = document.querySelector('.video-illustration').getBoundingClientRect().height;
+    liveVideo = document.querySelector('.video-play');
+});
+
 const opening = gsap.timeline({paused:true});
-
 const home = gsap.timeline({paused:true});
-
 
 const homeScroll = gsap.timeline({
     scrollTrigger: {
@@ -135,6 +140,7 @@ let video = gsap.timeline({
     scrollTrigger: {
         trigger: '.video',
         start: 'top bottom',
+        end: 'top top',
         scrub: 1
     }
 });
@@ -142,15 +148,31 @@ let video = gsap.timeline({
 video.to('.video', {
     position: 'fixed',
     top: 0,
+    opacity: 1,
 })
 .to('.video-illustration', {
-    width: '0px',
-    rotate: '90deg',
-    opacity: 0
-})
-.to('.video-illustration', {
-    display: 'none',
+    backgroundSize: '0px 100%',
     onComplete: () => {
-        document.querySelector('.video-play').play();
+        // Here this requires the user to have clicked once in the document
+            // Ensure it with opening animation (done using click & hold)
+        liveVideo.play();
     }
+});
+
+let videoEnd = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.album-trigger',
+        start: 'center center',
+        end: 'bottom top',
+        scrub: 1,
+        onEnter: () => {
+            liveVideo.pause();
+            // liveVideo.currentTime = 0;
+        }
+    }
+})
+
+videoEnd.to('.video', {
+    opacity: 0,
+    display: 'none'
 })

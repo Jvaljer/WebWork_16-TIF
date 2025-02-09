@@ -53,7 +53,7 @@ html, body
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    height: 800vh;
+    height: 1000vh;
     width: 100%;
     overflow: auto;
 
@@ -183,17 +183,21 @@ html, body
 
 .video {
     position: relative;
-    background-color: rgba(255, 255, 255, 0.25);
+    opacity: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     pointer-events: none;
 
     & .video-illustration {
+        background-image: url('assets/images/illustration.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
         margin-top: 5%;
         position: absolute;
+        left: 17.25%;
         width: 65.5%;
-        height: auto;
+        aspect-ratio: 711/400; /* hardcoded ... */
         z-index: 1;
     }
 
@@ -201,6 +205,10 @@ html, body
         margin-top: 5%;
         z-index: 0;
     }
+}
+
+.album {
+    background: rgba(255, 0, 0, 0.25);
 }
 
 /* Absolute Elements Styles */
