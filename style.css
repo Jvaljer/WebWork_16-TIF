@@ -53,7 +53,7 @@ html, body
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    height: 1000vh;
+    height: 1200vh;
     width: 100%;
     overflow: auto;
 
@@ -208,13 +208,66 @@ html, body
 }
 
 .album {
-    background: rgba(255, 0, 0, 0.25);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1vw;
+    align-items: center;
+    pointer-events: none;
+    overflow: hidden;
+    
+    & .album-list {
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: right;
+        text-align: right;
+
+        & .album-title {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        & .album-songs {
+            display: flex;
+            font-weight: bold;
+            flex-direction: column;
+            align-items: right;
+            gap: 12px;
+            opacity: 0.75;
+        }
+    }
+
+    & .album-cover {
+        height: 50vh;
+        width: 50vh;
+    }
+
+
+    & .album-listen {
+        display: flex;
+        flex-direction: column;
+        height: 50vh;
+        justify-content: end;
+        gap: 16px;
+        z-index: -1;
+        
+        & .album-icon {
+            width: 3vw;
+            border-radius: 50px;
+            overflow: hidden;
+            opacity: 0.75;
+        }
+    }
 }
 
 /* Absolute Elements Styles */
 .absolute {
     display: none;
-    position: fixed;
+    position: absolute;
+    background-color: aliceblue;
+    opacity: 0.5;
     top: 0;
     left: 0;
     width: 100%;

@@ -1,4 +1,4 @@
-import gsap from 'gsap';
+import gsap, { Elastic } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -176,3 +176,46 @@ videoEnd.to('.video', {
     opacity: 0,
     display: 'none'
 })
+
+let album = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.album',
+        start: 'top bottom',
+        end: 'bottom+=100vh bottom',
+        scrub: 1,
+        markers: true
+    },
+    paused: true,
+});
+
+album.to('.album', {
+    position: 'fixed',
+    top: 0,
+})
+.from('.album-cover', {
+    y: '50vh',
+    opacity: 0,
+    ease: 'power1.inOut',
+})
+.from('.album-title', {
+    x: '200px',
+    opacity: 0
+})
+.from('.album-song-name', {
+    x: '100px',
+    opacity: 0,
+    duration: 0.5,        // Duration for each animation
+    stagger: {
+        each: 0.2,        // 0.2s delay between each animation
+        from: 'end'       // Start from the last child
+    }
+})
+.from('.album-icon', {
+    x: '-50px',
+    opacity: 0,
+    duration: 1,        // Duration for each animation
+    stagger: {
+        each: 0.25,        // 0.2s delay between each animation
+        from: 'end'       // Start from the last child
+    }
+}, '<');
