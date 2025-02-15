@@ -10,7 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     liveVideo = document.querySelector('.video-play');
 });
 
+/* TODO: handle opening animations + interactions */
 const opening = gsap.timeline({paused:true});
+
+/* TODO: animate home opening/uncovering ... */
 const home = gsap.timeline({paused:true});
 
 const homeScroll = gsap.timeline({
@@ -21,7 +24,6 @@ const homeScroll = gsap.timeline({
     },
     paused:true
 });
-
 
 homeScroll.to('.home-bar', {
     position: 'fixed',
@@ -153,8 +155,6 @@ video.to('.video', {
 .to('.video-illustration', {
     backgroundSize: '0px 100%',
     onComplete: () => {
-        // Here this requires the user to have clicked once in the document
-            // Ensure it with opening animation (done using click & hold)
         liveVideo.play();
     }
 });
@@ -167,7 +167,6 @@ let videoEnd = gsap.timeline({
         scrub: 1,
         onEnter: () => {
             liveVideo.pause();
-            // liveVideo.currentTime = 0;
         }
     }
 })
@@ -204,18 +203,18 @@ album.to('.album', {
 .from('.album-song-name', {
     x: '100px',
     opacity: 0,
-    duration: 0.5,        // Duration for each animation
+    duration: 0.5,
     stagger: {
-        each: 0.2,        // 0.2s delay between each animation
-        from: 'end'       // Start from the last child
+        each: 0.2,
+        from: 'end'
     }
 })
 .from('.album-icon', {
     x: '-50px',
     opacity: 0,
-    duration: 1,        // Duration for each animation
+    duration: 1,
     stagger: {
-        each: 0.25,        // 0.2s delay between each animation
-        from: 'end'       // Start from the last child
+        each: 0.25,
+        from: 'end'
     }
 }, '<');
