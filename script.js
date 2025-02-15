@@ -10,11 +10,55 @@ document.addEventListener('DOMContentLoaded', () => {
     liveVideo = document.querySelector('.video-play');
 });
 
-/* TODO: handle opening animations + interactions */
-const opening = gsap.timeline({paused:true});
+let holdBtn = document.getElementById('click-hold-btn');
+
+holdBtn.addEventListener('mousedown', () => {
+    const interval = setInterval(() => {
+        const computedBefore = window.getComputedStyle(holdBtn, '::before');
+        const computedButton = window.getComputedStyle(holdBtn);
+
+        const beforeWidth = parseInt(computedBefore.width, 10);
+        const buttonWidth = parseInt(computedButton.width, 10) * 0.95;
+
+        console.log(`${beforeWidth} compared to ${buttonWidth}`);
+        
+        if (beforeWidth >= parseInt(buttonWidth)) {
+            opening.play();
+            clearInterval(interval); // Stop checking once triggered
+        }
+    }, 50); // Check every 50ms
+
+    // Stop checking if the mouse is released
+    document.addEventListener('mouseup', () => clearInterval(interval), { once: true });
+});
 
 /* TODO: animate home opening/uncovering ... */
-const home = gsap.timeline({paused:true});
+const opening = gsap.timeline({paused: true});
+opening.to('.click-hold', {
+    opacity: 0,
+    scale: 0,
+    onComplete: () => {
+        document.querySelector(".click-hold").style.display = 'none';
+    }
+})
+.from('.bar-image', {
+    height: '2px',
+    opacity: 0,
+    duration: 1.5
+}, '+=0.75')
+.from('#logo', {
+    y: '100px',
+    opacity: 0,
+    duration: 1
+})
+.from('#tif-text', {
+    opacity: 0,
+    duration: 1.5
+})
+.from('#credit-text', {
+    opacity: 0,
+    duration: 1.5,
+}, '<');
 
 const homeScroll = gsap.timeline({
     scrollTrigger: {
@@ -181,8 +225,7 @@ let album = gsap.timeline({
         trigger: '.album',
         start: 'top bottom',
         end: 'bottom+=100vh bottom',
-        scrub: 1,
-        markers: true
+        scrub: 1
     },
     paused: true,
 });

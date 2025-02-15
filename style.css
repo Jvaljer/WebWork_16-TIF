@@ -54,7 +54,7 @@ html, body
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    height: 1200vh;
+    height: 1300vh;
     width: 100%;
     overflow: auto;
 
@@ -66,6 +66,39 @@ html, body
 }
 
 .home {
+    position: relative;
+
+    & .click-hold {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        & #click-hold-btn {
+            color: var(--action-light);
+            font-size: 20px;
+            font-family: 'Aref Ruqaa';
+            width: fit-content;
+            letter-spacing: 4px;
+            background: none;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 0px;
+                height: 100%;
+                border-bottom: solid 1px var(--action-light);
+                transition: width 1.5s ease-in;
+            }
+
+            &:active {
+                &::before {
+                    width: 95%;
+                }
+            }
+        }
+    }
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -83,6 +116,7 @@ html, body
             width: 100%;
             height: auto;
             object-fit: cover;
+            z-index: 3;
         }
         & .bar-top {
             display: flex;
@@ -93,6 +127,7 @@ html, body
             height: 5vw;
 
             & #logo {
+                padding-bottom: 12px;
                 height: 5vw;
                 width: auto;
             }
@@ -106,15 +141,17 @@ html, body
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: start;
             width: 100%;
             height: 5vw;
 
             & #credit-text {
-                font-size: 1.5vw;
+                padding-top: 6px;
+                font-size: 1vw;
                 white-space: nowrap;
             }
             & #tif-text {
+                margin-top: -6px;
                 font-size: 2.5vw;
                 white-space: nowrap;
             }
@@ -263,90 +300,4 @@ html, body
     }
 }
 
-/* Absolute Elements Styles */
-.absolute {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Audio Player */
-
-/* Click & Hold interactible */
-.click-hold-indicator {
-    /* TODO */
-
-    & #click-hold {
-        position: relative;
-        font-size: 20px;
-        color: var(--action-light);
-        padding-bottom: 4px;
-        
-        &::before {
-            /* refine wether shall grow left to right or expand from center */
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0.5%; /* vrysmol or even 0 */
-            height: 100%;
-            opacity: 0; /* starts invisible ... */
-            border-bottom: solid 1px var(--action-light);
-        }
-    }
-}
-
-/* Scroll indicator */
-.scroll-indicator {
-    /* TODO */
-    & span {
-        color: var(--action-light);
-        font-size: 20px;
-    }
-    & .scroll-arrows {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-
-        & .scroll-icon {
-            width: 12px;
-            height: 12px;
-        }
-    }
-}
-
-/* OPENING FRAME */
-.opening {
-    position: absolute;
-    z-index: 5;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(255,255,255,0.75);
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 1vw;
-
-    & .opening-title {
-        font-size: 5vw; /* how to set a minimum ? */
-        /* try working with a container that is sized by VW
-            and then size those using EM or REM ...
-        */
-        color: var(--primary);
-        font-weight: bold;
-    }
-
-    & #1-6_logo { /* 280x193 */
-        /* initially fixed for drawing and then turn into VW ...*/
-        width: 280px;
-        height: 193px;
-        aspect-ratio: 280/193;
-    }
-}
+/* Audio Player Widget */
