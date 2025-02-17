@@ -54,7 +54,7 @@ html, body
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    height: 1300vh;
+    height: 1400vh;
     width: 100%;
     overflow: auto;
 
@@ -81,6 +81,7 @@ html, body
             width: fit-content;
             letter-spacing: 4px;
             background: none;
+            border: none;
 
             &::before {
                 content: '';
@@ -301,3 +302,32 @@ html, body
 }
 
 /* Audio Player Widget */
+
+/* Scrolling widget */
+.scroll-indicator {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 8px;
+    color: var(--action-light);
+    bottom: 32px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+
+    & .scroll-text {
+        opacity: 0.5;
+    }
+    
+    & .arrows {
+        display: flex;
+        flex-direction: column;
+        margin-right: 4px;
+
+        & .arrow-icon {
+            width: 12px;
+            height: auto;
+        }
+    }
+}

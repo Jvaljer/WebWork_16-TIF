@@ -32,8 +32,26 @@ holdBtn.addEventListener('mousedown', () => {
     document.addEventListener('mouseup', () => clearInterval(interval), { once: true });
 });
 
-/* TODO: animate home opening/uncovering ... */
+const scrollWidget = gsap.timeline({repeat: -1, defaults: {ease: "power1.inOut"}});
+
+scrollWidget
+.to(".arrow-icon", {
+    y: 4,
+    opacity: 0.25,
+    duration: 0.75,
+    stagger: 0.25,
+    ease: "power2.out"
+})
+.to(".arrow-icon", {
+    y: -2, 
+    opacity: 0.75, 
+    duration: 0.5, 
+    stagger: 0.25,
+    ease: "power2.out"
+}, ">-0.25")
+
 const opening = gsap.timeline({paused: true});
+
 opening.to('.click-hold', {
     opacity: 0,
     scale: 0,
@@ -51,6 +69,11 @@ opening.to('.click-hold', {
     opacity: 0,
     duration: 1
 })
+.from('#session-text', {
+    y: '100px',
+    opacity: 0,
+    duration: 1.5
+}, '-=0.5')
 .from('#tif-text', {
     opacity: 0,
     duration: 1.5
@@ -58,7 +81,15 @@ opening.to('.click-hold', {
 .from('#credit-text', {
     opacity: 0,
     duration: 1.5,
-}, '<');
+}, '<')
+.from('.scroll-indicator', {
+    opacity: 0,
+    scale: 0.25,
+    duration: 1.5,
+    onStart: () => {
+        scrollWidget.play();
+    }
+}, '+=1');
 
 const homeScroll = gsap.timeline({
     scrollTrigger: {
